@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "permission-graph"
+version = "0.1.0"
+description = "Runtime authorization graph for AI agents and applications: records and explains real access relationships between actors, processes, tools, APIs, resources, and actions."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Runtime Permission Graph Contributors" }]
+keywords = [
+    "security",
+    "authorization",
+    "observability",
+    "ai-agents",
+    "runtime-graph",
+    "permissions",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pydantic>=2.7,<3",
+]
+
+[project.optional-dependencies]
+viz = ["graphviz>=0.20"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "mypy>=1.9",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+permgraph = "permission_graph.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/example/runtime-permission-graph"
+Documentation = "https://github.com/example/runtime-permission-graph#readme"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/permission_graph"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
