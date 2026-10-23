@@ -44,8 +44,8 @@ dev = [
 permgraph = "permission_graph.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/example/runtime-permission-graph"
-Documentation = "https://github.com/example/runtime-permission-graph#readme"
+Homepage = "https://github.com/pxey/raph"
+Documentation = "https://github.com/pxey/raph#readme"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/permission_graph"]
